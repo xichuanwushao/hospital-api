@@ -12,7 +12,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.apache.phoenix.queryserver.client.Driver
-    url: jdbc:phoenix:thin:url=http://phoenix的IP地址:8765;serialization=PROTOBUF
+    url: jdbc:phoenix:thin:url=http://172.16.6.0:8765;serialization=PROTOBUF
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       test-on-borrow: true
@@ -29,9 +29,9 @@ spring:
 
   redis:
     database: 0
-    host: Redis的IP地址
+    host: 172.16.6.0
     port: 6379
-    password: abc123456
+    password: 888816280
     jedis:
       pool:
         max-active: 1000
@@ -92,7 +92,7 @@ tencent:
     expire: 86400
 
 minio:
-  endpoint: http://Minio服务器地址:9000
+  endpoint: http://172.16.6.0:9000
   access-key: root
-  secret-key: abc123456
+  secret-key: 888816280
 
