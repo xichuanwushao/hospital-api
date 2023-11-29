@@ -41,4 +41,30 @@
         </if>
         LIMIT ${length} OFFSET #{start}
     </select>
+
+
+    <select id="searchCount" parameterType="Map" resultType="long">
+        SELECT COUNT(*)
+        FROM HOSPITAL.DOCTOR d
+        JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."doctor_id" = d."id"
+        JOIN HOSPITAL.MEDICAL_DEPT_SUB ds ON sd."dept_sub_id" = ds."id"
+        JOIN HOSPITAL.MEDICAL_DEPT md ON ds."dept_id" = md."id"
+        WHERE 1=1
+        <if test="name!=null">
+            AND d."name" LIKE '%${name}%'
+        </if>
+        <if test="deptId!=null">
+            AND md."id" = ${deptId}
+        </if>
+        <if test="degree!=null">
+            AND d."degree" = #{degree}
+        </if>
+        <if test="job!=null">
+            AND d."job" = #{job}
+        </if>
+        <if test="recommended!=null">
+            AND d."recommended" = ${recommended}
+        </if>
+        AND d."status" = ${status}
+    </select>
 </mapper>
