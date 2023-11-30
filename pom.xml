@@ -105,11 +105,11 @@
             </exclusions>
         </dependency>
         <!--微信支付-->
-        <dependency>
-            <groupId>cn.felord</groupId>
-            <artifactId>payment-spring-boot-starter</artifactId>
-            <version>1.0.13.RELEASE</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.felord</groupId>-->
+<!--            <artifactId>payment-spring-boot-starter</artifactId>-->
+<!--            <version>1.0.13.RELEASE</version>-->
+<!--        </dependency>-->
         <!--腾讯云-->
         <dependency>
             <groupId>com.tencentcloudapi</groupId>
