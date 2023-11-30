@@ -67,28 +67,28 @@ sa-token:
 
 
 wechat:
-  app-id: 你的微信小程序APPID
-  app-secret: 你的微信小程序密钥
+  app-id: wx539efd2e45d79197
+  app-secret: 472e3da84b0dc3613d9b569de84b82c6
   pay:
     v3:
       patient-wx-api:
-        app-id: 你的微信小程序APPID
-        app-v3-secret: 微信商户平台密钥
-        mch-id: 微信商户平台ID
-        domain: http://内网穿透的外网IP地址和端口/hospital-wx-api
+        app-id: wx4cb8e9621950da45
+        app-v3-secret: 6c6085b7a939450d833d8bb3081d4628
+        mch-id: 1526972031
+        domain: http://172.16.6.0:9090/hospital-wx-api
         cert-path: apiclient_cert.p12
 
 tencent:
   cloud:
-    appId: 你的腾讯云APPID
-    secretId: 你的腾讯云secretId
-    secretKey: 你的腾讯云secretKey
+    appId: 123123
+    secretId: 123123
+    secretKey: 123123
     face:
       groupName: hospital
       region: ap-beijing
   trtc:
-    appId: TRTC的appId
-    secretKey: TRTC的secretKey
+    appId: 123123
+    secretKey: 123123
     expire: 86400
 
 minio:
