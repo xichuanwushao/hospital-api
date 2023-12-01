@@ -89,20 +89,40 @@
             <artifactId>sa-token-spring-aop</artifactId>
             <version>1.28.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.phoenix</groupId>-->
+<!--            <artifactId>phoenix-queryserver-client</artifactId>-->
+<!--            <version>5.0.0-HBase-2.0</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-log4j12</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>log4j</groupId>-->
+<!--                    <artifactId>log4j</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+        <!-- Phoenix JDBC Driver -->
+        <!-- HBase Client Dependency -->
+
         <dependency>
             <groupId>org.apache.phoenix</groupId>
-            <artifactId>phoenix-queryserver-client</artifactId>
-            <version>5.0.0-HBase-2.0</version>
+            <artifactId>phoenix-core</artifactId>
+            <version>5.1.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-hbase-compat-2.4.1</artifactId>
+            <version>5.1.2</version>
+            <scope>runtime</scope>
         </dependency>
         <!--微信支付-->
 <!--        <dependency>-->

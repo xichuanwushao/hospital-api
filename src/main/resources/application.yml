@@ -9,17 +9,27 @@ server:
   servlet:
     context-path: /hospital-api
 
+#spring:
+#  datasource:
+#    driver-class-name: org.apache.phoenix.queryserver.client.Driver
+#    url: jdbc:phoenix:172.16.6.0:2181
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      test-on-borrow: true
+#      test-while-idle: true
+#      max-active: 8
+#      min-idle: 4
+#      validation-query: SELECT 1
 spring:
   datasource:
-    driver-class-name: org.apache.phoenix.queryserver.client.Driver
-    url: jdbc:phoenix:thin:url=http://172.16.6.0:8765;serialization=PROTOBUF
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      test-on-borrow: true
-      test-while-idle: true
-      max-active: 8
-      min-idle: 4
-      validation-query: SELECT 1
+    driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
+    url: jdbc:phoenix:172.16.6.0:2181:/hbase
+    username: none
+    password: none
+  jpa:
+    database-platform: org.apache.phoenix.hibernate.PhoenixDialect
+    hibernate:
+      ddl-auto: none
 
   servlet:
     multipart:
