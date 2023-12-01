@@ -924,9 +924,9 @@ UPSERT INTO HOSPITAL.MIS_ACTION("id","action_code","action_name")
 VALUES(10,'DIAGNOSE','诊断');
 
 -- MIS端权限表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_permission;
+DROP TABLE IF EXISTS HOSPITAL.MIS_PERMISSION;
 
-CREATE TABLE hospital.mis_permission
+CREATE TABLE HOSPITAL.MIS_PERMISSION
 (
     "id"                SMALLINT NOT NULL PRIMARY KEY,
     "permission_code"   VARCHAR,
@@ -934,310 +934,310 @@ CREATE TABLE hospital.mis_permission
     "action_id"         SMALLINT
 );
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(0,'ROOT',0,0);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(1,'MIS_USER:INSERT',1,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(2,'MIS_USER:DELETE',1,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(3,'MIS_USER:UPDATE',1,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(4,'MIS_USER:SELECT',1,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(5,'PATIENT_USER:INSERT',2,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(6,'PATIENT_USER:DELETE',2,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(7,'PATIENT_USER:UPDATE',2,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(8,'PATIENT_USER:SELECT',2,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(9,'WORKER_USER:INSERT',3,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(10,'WORKER_USER:DELETE',3,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(11,'WORKER_USER:UPDATE',3,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(12,'WORKER_USER:SELECT',3,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(13,'DEPT:INSERT',4,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(14,'DEPT:DELETE',4,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(15,'DEPT:UPDATE',4,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(16,'DEPT:SELECT',4,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(17,'MEDICAL_DEPT:INSERT',5,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(18,'MEDICAL_DEPT:DELETE',5,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(19,'MEDICAL_DEPT:UPDATE',5,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(20,'MEDICAL_DEPT:SELECT',5,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(21,'MEDICAL_DEPT_SUB:INSERT',6,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(22,'MEDICAL_DEPT_SUB:DELETE',6,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(23,'MEDICAL_DEPT_SUB:UPDATE',6,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(24,'MEDICAL_DEPT_SUB:SELECT',6,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(25,'SCHEDULE:INSERT',7,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(26,'SCHEDULE:DELETE',7,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(27,'SCHEDULE:UPDATE',7,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(28,'SCHEDULE:SELECT',7,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(29,'REGISTRATION:INSERT',8,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(30,'REGISTRATION:DELETE',8,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(31,'REGISTRATION:UPDATE',8,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(32,'REGISTRATION:SELECT',8,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(33,'VIDEO_DIAGNOSE:INSERT',9,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(34,'VIDEO_DIAGNOSE:DELETE',9,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(35,'VIDEO_DIAGNOSE:UPDATE',9,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(36,'VIDEO_DIAGNOSE:SELECT',9,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(37,'VIDEO_DIAGNOSE:DIAGNOSE',9,5);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(38,'DOCTOR:INSERT',10,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(39,'DOCTOR:DELETE',10,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(40,'DOCTOR:UPDATE',10,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(41,'DOCTOR:SELECT',10,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(42,'NURSE:INSERT',11,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(43,'NURSE:DELETE',11,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(44,'NURSE:UPDATE',11,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(45,'NURSE:SELECT',11,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(46,'NURSING_ASSISTANT:INSERT',12,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(47,'NURSING_ASSISTANT:DELETE',12,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(48,'NURSING_ASSISTANT:UPDATE',12,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(49,'NURSING_ASSISTANT:SELECT',12,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(46,'DOCTOR_PRICE:INSERT',13,1);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(47,'DOCTOR_PRICE:DELETE',14,2);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(48,'DOCTOR_PRICE:UPDATE',15,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(49,'DOCTOR_PRICE:SELECT',16,4);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(50,'SYSTEM:UPDATE',16,3);
 
-UPSERT INTO hospital.mis_permission("id","permission_code","module_id","action_id")
+UPSERT INTO HOSPITAL.MIS_PERMISSION("id","permission_code","module_id","action_id")
 VALUES(51,'SYSTEM:SELECT',16,4);
 
 
 -- MIS端角色表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_role;
+DROP TABLE IF EXISTS HOSPITAL.MIS_ROLE;
 
-CREATE TABLE hospital.mis_role
+CREATE TABLE HOSPITAL.MIS_ROLE
 (
     "id"            INTEGER NOT NULL PRIMARY KEY,
     "role_name"     VARCHAR(50),
     "remark"          VARCHAR(50)
 );
 
-DROP SEQUENCE IF EXISTS hospital.mis_role_sequence;
-CREATE SEQUENCE hospital.mis_role_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.MIS_ROLE_SEQUENCE;
+CREATE SEQUENCE HOSPITAL.MIS_ROLE_SEQUENCE START WITH 1 increment BY 1;
 
-UPSERT INTO hospital.mis_role("id","role_name","remark")
+UPSERT INTO HOSPITAL.MIS_ROLE("id","role_name","remark")
 VALUES(0, '超级管理员','超级管理员');
 
-UPSERT INTO hospital.mis_role("id","role_name","remark")
-VALUES(NEXT VALUE FOR hospital.mis_role_sequence, '医生','医生角色');
+UPSERT INTO HOSPITAL.MIS_ROLE("id","role_name","remark")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_SEQUENCE, '医生','医生角色');
 
-UPSERT INTO hospital.mis_role("id","role_name","remark")
-VALUES(NEXT VALUE FOR hospital.mis_role_sequence, '视频问诊医生','可以视频问诊的医生');
+UPSERT INTO HOSPITAL.MIS_ROLE("id","role_name","remark")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_SEQUENCE, '视频问诊医生','可以视频问诊的医生');
 
 -- MIS端角色权限表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_role_permission;
+DROP TABLE IF EXISTS HOSPITAL.MIS_ROLE_PERMISSION;
 
-CREATE TABLE hospital.mis_role_permission
+CREATE TABLE HOSPITAL.MIS_ROLE_PERMISSION
 (
     "id"            INTEGER NOT NULL PRIMARY KEY,
     "role_id"       INTEGER,
     "permission_id" SMALLINT
 );
 
-DROP SEQUENCE IF EXISTS hospital.mis_role_permission_sequence;
-CREATE SEQUENCE hospital.mis_role_permission_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE;
+CREATE SEQUENCE HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE START WITH 1 increment BY 1;
 
 -- 超级管理员角色拥有最高权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
 VALUES(0, 0,0);
 
 -- 医生拥有查询MIS帐户权限（仅限自己）
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,4);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,4);
 
 -- 医生拥有查询部门权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,16);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,16);
 
 -- 医生拥有查询科室权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,20);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,20);
 
 -- 医生拥有查询诊室权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,24);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,24);
 
 -- 医生拥有查询出诊计划权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,28);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,28);
 
 -- 医生拥有查询挂号记录权限（仅限自己的患者）
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 1,32);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 1,32);
 
 -- 视频问诊医生拥有查询问诊记录权限（仅限自己的患者）
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 2,36);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 2,36);
 
 -- 视频问诊医生拥有视频问诊权限
-UPSERT INTO hospital.mis_role_permission("id","role_id","permission_id")
-VALUES(NEXT VALUE FOR hospital.mis_role_permission_sequence, 2,37);
+UPSERT INTO HOSPITAL.MIS_ROLE_PERMISSION("id","role_id","permission_id")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_ROLE_PERMISSION_SEQUENCE, 2,37);
 
 -- MIS端部门表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_dept;
+DROP TABLE IF EXISTS HOSPITAL.MIS_DEPT;
 
-CREATE TABLE hospital.mis_dept
+CREATE TABLE HOSPITAL.MIS_DEPT
 (
     "id"    INTEGER NOT NULL PRIMARY KEY,
     "name"  VARCHAR
 );
-DROP SEQUENCE IF EXISTS hospital.mis_dept_sequence;
-CREATE SEQUENCE hospital.mis_dept_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.MIS_DEPT_sequence;
+CREATE SEQUENCE HOSPITAL.MIS_DEPT_sequence START WITH 1 increment BY 1;
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '院长办公室');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '院长办公室');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '人力资源部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '人力资源部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '财务部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '财务部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '保卫部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '保卫部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '后勤部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '后勤部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '工程部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '工程部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '基建部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '基建部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '物资部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '物资部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '运营部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '运营部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '医务部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '医务部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '门诊部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '门诊部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '护理部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '护理部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '科研教育部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '科研教育部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '国际合作部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '国际合作部');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '信息中心');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '信息中心');
 
-UPSERT INTO hospital.mis_dept("id","name")
-VALUES(NEXT VALUE FOR hospital.mis_dept_sequence, '公共关系部');
+UPSERT INTO HOSPITAL.MIS_DEPT("id","name")
+VALUES(NEXT VALUE FOR HOSPITAL.MIS_DEPT_sequence, '公共关系部');
 
 
 -- MIS端用户表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_user;
+DROP TABLE IF EXISTS HOSPITAL.MIS_USER;
 
-CREATE TABLE hospital.mis_user
+CREATE TABLE HOSPITAL.MIS_USER
 (
     "id"        INTEGER NOT NULL PRIMARY KEY,
     "username"  VARCHAR(50),
@@ -1254,16 +1254,16 @@ CREATE TABLE hospital.mis_user
     "create_time" DATE
 );
 
-DROP SEQUENCE IF EXISTS hospital.mis_user_sequence;
-CREATE SEQUENCE hospital.mis_user_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.MIS_USER_SEQUENCE;
+CREATE SEQUENCE HOSPITAL.MIS_USER_SEQUENCE START WITH 1 increment BY 1;
 
-CREATE INDEX mis_user_idx_1 ON hospital.mis_user ("username");
-CREATE INDEX mis_user_idx_2 ON hospital.mis_user ("dept_id");
-CREATE INDEX mis_user_idx_3 ON hospital.mis_user ("job");
-CREATE INDEX mis_user_idx_4 ON hospital.mis_user ("dept_id");
-CREATE INDEX mis_user_idx_5 ON hospital.mis_user ("status");
+CREATE INDEX mis_user_idx_1 ON HOSPITAL.MIS_USER ("username");
+CREATE INDEX mis_user_idx_2 ON HOSPITAL.MIS_USER ("dept_id");
+CREATE INDEX mis_user_idx_3 ON HOSPITAL.MIS_USER ("job");
+CREATE INDEX mis_user_idx_4 ON HOSPITAL.MIS_USER ("dept_id");
+CREATE INDEX mis_user_idx_5 ON HOSPITAL.MIS_USER ("status");
 
-UPSERT INTO hospital.mis_user(
+UPSERT INTO HOSPITAL.MIS_USER(
     "id","username","password","name","sex","tel","email","dept_id","job","status","create_time"
 )
 VALUES(
@@ -1272,7 +1272,7 @@ VALUES(
 
 
 -- MIS端用户角色表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.mis_user_role;
+DROP TABLE IF EXISTS HOSPITAL.MIS_USER_ROLE;
 
 CREATE TABLE HOSPITAL.MIS_USER_ROLE
 (
@@ -1281,22 +1281,22 @@ CREATE TABLE HOSPITAL.MIS_USER_ROLE
     "role_id"  INTEGER
 );
 
-DROP SEQUENCE IF EXISTS hospital.mis_user_role_sequence;
-CREATE SEQUENCE hospital.mis_user_role_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.MIS_USER_ROLE_sequence;
+CREATE SEQUENCE HOSPITAL.MIS_USER_ROLE_sequence START WITH 1 increment BY 1;
 
-CREATE INDEX mis_user_role_idx_1 ON hospital.mis_user_role ("user_id");
-CREATE INDEX mis_user_role_idx_2 ON hospital.mis_user_role ("role_id");
+CREATE INDEX mis_user_role_idx_1 ON HOSPITAL.MIS_USER_ROLE ("user_id");
+CREATE INDEX mis_user_role_idx_2 ON HOSPITAL.MIS_USER_ROLE ("role_id");
 
 -- 超级管理员MIS帐户关联超级管理员角色
-UPSERT INTO hospital.mis_user_role(
+UPSERT INTO HOSPITAL.MIS_USER_ROLE(
     "id","user_id","role_id"
 )
 VALUES(0,0,0);
 
 
 -- 视频问诊订单表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.video_diagnose;
-CREATE TABLE hospital.video_diagnose
+DROP TABLE IF EXISTS HOSPITAL.VIDEO_DIAGNOSE;
+CREATE TABLE HOSPITAL.VIDEO_DIAGNOSE
 (
     "id"              INTEGER NOT NULL PRIMARY KEY,
     "patient_card_id" INTEGER,
@@ -1316,22 +1316,22 @@ CREATE TABLE hospital.video_diagnose
     "create_time"     DATE
 );
 
-DROP SEQUENCE IF EXISTS hospital.video_diagnose_sequence;
-CREATE SEQUENCE hospital.video_diagnose_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.VIDEO_DIAGNOSE_SEQUENCE;
+CREATE SEQUENCE HOSPITAL.VIDEO_DIAGNOSE_SEQUENCE START WITH 1 increment BY 1;
 
-CREATE INDEX video_diagnose_idx_1 ON hospital.video_diagnose ("patient_card_id");
-CREATE INDEX video_diagnose_idx_2 ON hospital.video_diagnose ("doctor_id");
-CREATE INDEX video_diagnose_idx_3 ON hospital.video_diagnose ("out_trade_no");
-CREATE INDEX video_diagnose_idx_4 ON hospital.video_diagnose ("payment_status");
-CREATE INDEX video_diagnose_idx_5 ON hospital.video_diagnose ("prepay_id");
-CREATE INDEX video_diagnose_idx_6 ON hospital.video_diagnose ("transaction_id");
-CREATE INDEX video_diagnose_idx_7 ON hospital.video_diagnose ("expect_start");
-CREATE INDEX video_diagnose_idx_8 ON hospital.video_diagnose ("expect_end");
-CREATE INDEX video_diagnose_idx_9 ON hospital.video_diagnose ("status");
+CREATE INDEX video_diagnose_idx_1 ON HOSPITAL.VIDEO_DIAGNOSE ("patient_card_id");
+CREATE INDEX video_diagnose_idx_2 ON HOSPITAL.VIDEO_DIAGNOSE ("doctor_id");
+CREATE INDEX video_diagnose_idx_3 ON HOSPITAL.VIDEO_DIAGNOSE ("out_trade_no");
+CREATE INDEX video_diagnose_idx_4 ON HOSPITAL.VIDEO_DIAGNOSE ("payment_status");
+CREATE INDEX video_diagnose_idx_5 ON HOSPITAL.VIDEO_DIAGNOSE ("prepay_id");
+CREATE INDEX video_diagnose_idx_6 ON HOSPITAL.VIDEO_DIAGNOSE ("transaction_id");
+CREATE INDEX video_diagnose_idx_7 ON HOSPITAL.VIDEO_DIAGNOSE ("expect_start");
+CREATE INDEX video_diagnose_idx_8 ON HOSPITAL.VIDEO_DIAGNOSE ("expect_end");
+CREATE INDEX video_diagnose_idx_9 ON HOSPITAL.VIDEO_DIAGNOSE ("status");
 
 -- 视频问诊资料表 -----------------------------------------------
-DROP TABLE IF EXISTS hospital.video_diagnose_file;
-CREATE TABLE hospital.video_diagnose_file(
+DROP TABLE IF EXISTS HOSPITAL.VIDEO_DIAGNOSE_FILE;
+CREATE TABLE HOSPITAL.VIDEO_DIAGNOSE_FILE(
                                              "id" INTEGER NOT NULL PRIMARY KEY,
                                              "video_diagnose_id" INTEGER,
                                              "filename" VARCHAR(100),
@@ -1339,11 +1339,11 @@ CREATE TABLE hospital.video_diagnose_file(
                                              "create_time" DATE
 );
 
-DROP SEQUENCE IF EXISTS hospital.video_diagnose_file_sequence;
-CREATE SEQUENCE hospital.video_diagnose_file_sequence START WITH 1 increment BY 1;
+DROP SEQUENCE IF EXISTS HOSPITAL.VIDEO_DIAGNOSE_FILE_sequence;
+CREATE SEQUENCE HOSPITAL.VIDEO_DIAGNOSE_FILE_sequence START WITH 1 increment BY 1;
 
-CREATE INDEX video_diagnose_file_idx_1 ON hospital.video_diagnose_file ("video_diagnose_id");
-CREATE INDEX video_diagnose_file_idx_2 ON hospital.video_diagnose_file ("create_time");
+CREATE INDEX video_diagnose_file_idx_1 ON HOSPITAL.VIDEO_DIAGNOSE_FILE ("video_diagnose_id");
+CREATE INDEX video_diagnose_file_idx_2 ON HOSPITAL.VIDEO_DIAGNOSE_FILE ("create_time");
 
 
 
