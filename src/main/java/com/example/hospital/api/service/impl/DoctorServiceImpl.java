@@ -1,6 +1,8 @@
 package com.example.hospital.api.service.impl;
 
 import cn.hutool.core.map.MapUtil;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.db.dao.DoctorDao;
 import com.example.hospital.api.service.DoctorService;
@@ -35,4 +37,13 @@ public class DoctorServiceImpl implements DoctorService {
         PageUtils pageUtils = new PageUtils(list, count, page, length);
         return pageUtils;
     }
+
+    @Override
+    public HashMap searchContent(int id) {
+        HashMap map = doctorDao.searchContent(id);
+        JSONArray tag = JSONUtil.parseArray(MapUtil.getStr(map, "tag"));
+        map.replace("tag", tag);
+        return map;
+    }
+
 }

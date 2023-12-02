@@ -7,6 +7,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.common.R;
 import com.example.hospital.api.controller.form.SearchDoctorByPageForm;
+import com.example.hospital.api.controller.form.SearchDoctorContentForm;
 import com.example.hospital.api.service.DoctorService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,4 +40,13 @@ public class DoctorController {
         PageUtils pageUtils = doctorService.searchByPage(param);
         return R.ok().put("result", pageUtils);
     }
+
+    @PostMapping("/searchContent")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "DOCTOR:SELECT"}, mode = SaMode.OR)
+    public R searchContent(@RequestBody @Valid SearchDoctorContentForm form) {
+        HashMap map = doctorService.searchContent(form.getId());
+        return R.ok(map);
+    }
+
 }

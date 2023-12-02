@@ -9,6 +9,8 @@ public interface DoctorDao {
     public ArrayList<HashMap> searchByPage(Map param);
 
     public long searchCount(Map param);
+
+    HashMap searchContent(int id);
 }
 
 
