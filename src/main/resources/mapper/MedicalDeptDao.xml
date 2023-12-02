@@ -5,6 +5,7 @@
 <mapper namespace="com.example.hospital.api.db.dao.MedicalDeptDao">
     <select id="searchAll" resultType="HashMap">
     SELECT "id",
+           "name"
     FROM HOSPITAL.MEDICAL_DEPT
     </select>
 </mapper>
