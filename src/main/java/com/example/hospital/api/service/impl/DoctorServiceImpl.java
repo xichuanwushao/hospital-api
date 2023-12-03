@@ -1,10 +1,14 @@
 package com.example.hospital.api.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.db.dao.DoctorDao;
+import com.example.hospital.api.db.dao.MedicalDeptSubAndDoctorDao;
+import com.example.hospital.api.db.pojo.DoctorEntity;
+import com.example.hospital.api.db.pojo.MedicalDeptSubAndDoctorEntity;
 import com.example.hospital.api.exception.HospitalException;
 import com.example.hospital.api.service.DoctorService;
 import io.minio.MinioClient;
@@ -36,6 +40,10 @@ public class DoctorServiceImpl implements DoctorService {
     private String secretKey;
     @Resource
     private DoctorDao doctorDao;
+
+    @Resource
+    private MedicalDeptSubAndDoctorDao medicalDeptSubAndDoctorDao;
+
     @Override
     public PageUtils searchByPage(Map param) {
         ArrayList<HashMap> list = null;
@@ -82,5 +90,20 @@ public class DoctorServiceImpl implements DoctorService {
         }
     }
 
+    @Override
+    public void insert(Map param) {
+        //保存医生记录
+        DoctorEntity entity_1 = BeanUtil.toBean(param, DoctorEntity.class);
+        doctorDao.insert(entity_1);
+        //根据uuid查询医生主键值
+        String uuid = entity_1.getUuid();
+        Integer doctorId = doctorDao.searchIdByUuid(uuid);
+        //保存医生诊室记录
+        int subId = MapUtil.getInt(param, "subId");
+        MedicalDeptSubAndDoctorEntity entity_2 = new MedicalDeptSubAndDoctorEntity();
+        entity_2.setDeptSubId(subId);
+        entity_2.setDoctorId(doctorId);
+        medicalDeptSubAndDoctorDao.insert(entity_2);
+    }
 
 }
