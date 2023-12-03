@@ -4,8 +4,11 @@ import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaMode;
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.json.JSONUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.common.R;
+import com.example.hospital.api.controller.form.InsertDoctorForm;
 import com.example.hospital.api.controller.form.SearchDoctorByPageForm;
 import com.example.hospital.api.controller.form.SearchDoctorContentForm;
 import com.example.hospital.api.service.DoctorService;
@@ -59,4 +62,17 @@ public class DoctorController {
             doctorService.updatePhoto(file, doctorId);
          return R.ok();
     }
+
+    @PostMapping("/insert")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "DOCTOR:INSERT"}, mode = SaMode.OR)
+    public R insert(@RequestBody @Valid InsertDoctorForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        String json = JSONUtil.parseArray(form.getTag()).toString();
+        param.replace("tag", json);
+        param.put("uuid", IdUtil.simpleUUID().toUpperCase());
+        doctorService.insert(param);
+        return R.ok();
+    }
+
 }
