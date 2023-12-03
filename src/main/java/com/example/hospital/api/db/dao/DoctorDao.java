@@ -11,6 +11,8 @@ public interface DoctorDao {
     public long searchCount(Map param);
 
     HashMap searchContent(int id);
+
+    public void updatePhoto(Map param);
 }
 
 
