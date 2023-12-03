@@ -102,7 +102,7 @@ tencent:
     expire: 86400
 
 minio:
-  endpoint: http://172.16.6.0:9000
+  endpoint: http://172.16.6.0:9002
   access-key: root
   secret-key: 888816280
 
