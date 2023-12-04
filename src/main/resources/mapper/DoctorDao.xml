@@ -96,7 +96,8 @@
         "description", "hiredate", "tag","recommended","status", "create_time"
         )
  VALUES (
-        NEXT VALUE FOR HOSPITAL.DOCTOR_SEQUENCE, #{name}, #{pid}, #{uuid}, #{sex}, TO_DAT
+        NEXT VALUE FOR HOSPITAL.DOCTOR_SEQUENCE, #{name}, #{pid}, #{uuid}, #{sex}, TO_DATE('${birthday}'),
+
         #{school}, #{degree}, #{tel}, #{address}, #{email}, #{job}, #{remark},
         #{description}, #{hiredate}, #{tag}, ${recommended}, ${status}, NOW()
     )

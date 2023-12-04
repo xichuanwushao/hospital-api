@@ -16,14 +16,14 @@ import javax.validation.constraints.*;
         @Pattern(regexp = "^[\\u4e00-\\u9f5a]{2,20}$", message = "name内容不正确")
         private String name;
         @NotBlank(message = "pid不能为空")
-        @Pattern(regexp = "")//***********************************
+        //@Pattern(regexp = "")//***********************************
                 private String pid;
                 @NotBlank(message = "sex不能为空")
                 @Pattern(regexp = "^男$|^女$", message = "sex内容不正确")
         private String sex;
         @NotBlank(message = "birthday不能为空")
-        @Pattern(regexp = "",//***********************************
-                message = "birthday内容不正确")
+        //@Pattern(regexp = "",//***********************************
+         //       message = "birthday内容不正确")
         private String birthday;
         @NotBlank(message = "school不能为空")
         @Length(min = 2, max = 50, message = "school内容不正确")
@@ -51,8 +51,8 @@ import javax.validation.constraints.*;
         @NotBlank(message = "description不能为空")
         private String description;
         @NotBlank(message = "birthday不能为空")
-        @Pattern(regexp = "",//***********************************
-                message = "birthday内容不正确")
+        //@Pattern(regexp = "",//***********************************
+        //        message = "birthday内容不正确")
         private String hiredate;
         private String[] tag;
         @NotNull(message = "recommended不能为空")
