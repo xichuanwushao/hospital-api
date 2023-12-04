@@ -1,6 +1,5 @@
-CREATE SCHEMA hospital;
-USE
-hospital;
+CREATE SCHEMA HOSPITAL;
+USE HOSPITAL;
 
 -- 患者端用户表 -----------------------------------------------
 DROP TABLE IF EXISTS HOSPITAL.PATIENT_USER;
