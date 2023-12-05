@@ -106,4 +106,19 @@ public class DoctorServiceImpl implements DoctorService {
         medicalDeptSubAndDoctorDao.insert(entity_2);
     }
 
+    @Override
+    public HashMap searchById(int id) {
+        HashMap map = doctorDao.searchById(id);
+        String tag = MapUtil.getStr(map, "tag");
+        JSONArray array = JSONUtil.parseArray(tag);
+        map.replace("tag", array);
+        return map;
+    }
+    @Override
+    @Transactional
+    public void update(Map param) {
+        doctorDao.update(param);
+        param = MapUtil.renameKey(param, "id", "doctorId");
+        medicalDeptSubAndDoctorDao.updateDoctorSubDept(param);
+    }
 }

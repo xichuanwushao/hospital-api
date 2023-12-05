@@ -18,4 +18,8 @@ public interface DoctorService {
     public void updatePhoto(MultipartFile file, Integer doctorId);
 
     public void insert(Map param);
+
+    public HashMap searchById(int id);
+    public void update(Map param);
+
 }
