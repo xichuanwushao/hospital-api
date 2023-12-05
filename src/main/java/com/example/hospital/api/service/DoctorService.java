@@ -22,4 +22,6 @@ public interface DoctorService {
     public HashMap searchById(int id);
     public void update(Map param);
 
+    public void deleteByIds(Integer[] ids);
+
 }

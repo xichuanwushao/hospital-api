@@ -121,4 +121,12 @@ public class DoctorServiceImpl implements DoctorService {
         param = MapUtil.renameKey(param, "id", "doctorId");
         medicalDeptSubAndDoctorDao.updateDoctorSubDept(param);
     }
+
+    @Override
+    @Transactional
+    public void deleteByIds(Integer[] ids) {
+        doctorDao.deleteByIds(ids);
+    }
+
+
 }
