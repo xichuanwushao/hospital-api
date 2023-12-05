@@ -25,6 +25,7 @@ public interface DoctorDao {
 
     public void update(Map param);
 
+    public void deleteByIds(Integer[] ids);
 }
 
 

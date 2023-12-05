@@ -148,4 +148,14 @@
             )
     </update>
 
+    <update id="deleteByIds">
+        UPSERT INTO HOSPITAL.DOCTOR("id", "status")
+        SELECT "id", 4
+        FROM HOSPITAL.DOCTOR
+        WHERE "id" IN
+        <foreach collection="array" open="(" item="one" separator="," close=")">
+            ${one}
+        </foreach>
+    </update>
+
 </mapper>
