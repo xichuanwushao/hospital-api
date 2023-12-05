@@ -21,6 +21,10 @@ public interface DoctorDao {
     public void insert(DoctorEntity entity);
 
     public Integer searchIdByUuid(String uuid);
+    public HashMap searchById( int id);
+
+    public void update(Map param);
+
 }
 
 
