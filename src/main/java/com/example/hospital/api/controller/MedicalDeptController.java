@@ -6,10 +6,7 @@ import cn.dev33.satoken.annotation.SaMode;
 import cn.hutool.core.bean.BeanUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.common.R;
-import com.example.hospital.api.controller.form.InsertMedicalDeptForm;
-import com.example.hospital.api.controller.form.SearchMedicalDeptByIdForm;
-import com.example.hospital.api.controller.form.SearchMedicalDeptByPageForm;
-import com.example.hospital.api.controller.form.UpdateMedicalDeptForm;
+import com.example.hospital.api.controller.form.*;
 import com.example.hospital.api.db.pojo.MedicalDeptEntity;
 import com.example.hospital.api.service.MedicalDeptService;
 import org.springframework.web.bind.annotation.*;
@@ -79,6 +76,14 @@ public class MedicalDeptController {
     public R update(@RequestBody @Valid UpdateMedicalDeptForm form) {
         MedicalDeptEntity entity = BeanUtil.toBean(form, MedicalDeptEntity.class);
         medicalDeptService.update(entity);
+        return R.ok();
+    }
+
+    @PostMapping("/deleteByIds")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "MEDICAL_DEPT:DELETE"}, mode = SaMode.OR)
+    public R deleteByIds(@RequestBody @Valid DeleteMedicalDeptByIdsForm form) {
+        medicalDeptService.deleteByIds(form.getIds());
         return R.ok();
     }
 
