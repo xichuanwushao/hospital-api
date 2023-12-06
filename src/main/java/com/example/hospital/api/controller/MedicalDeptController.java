@@ -7,7 +7,9 @@ import cn.hutool.core.bean.BeanUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.common.R;
 import com.example.hospital.api.controller.form.InsertMedicalDeptForm;
+import com.example.hospital.api.controller.form.SearchMedicalDeptByIdForm;
 import com.example.hospital.api.controller.form.SearchMedicalDeptByPageForm;
+import com.example.hospital.api.controller.form.UpdateMedicalDeptForm;
 import com.example.hospital.api.db.pojo.MedicalDeptEntity;
 import com.example.hospital.api.service.MedicalDeptService;
 import org.springframework.web.bind.annotation.*;
@@ -60,6 +62,23 @@ public class MedicalDeptController {
     public R insert(@RequestBody @Valid InsertMedicalDeptForm form) {
         MedicalDeptEntity entity = BeanUtil.toBean(form, MedicalDeptEntity.class);
         medicalDeptService.insert(entity);
+        return R.ok();
+    }
+
+    @PostMapping("/searchById")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "MEDICAL_DEPT:SELECT"}, mode = SaMode.OR)
+    public R searchById(@RequestBody @Valid SearchMedicalDeptByIdForm form) {
+        HashMap map = medicalDeptService.searchById(form.getId());
+        return R.ok(map);
+    }
+
+    @PostMapping("/update")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "MEDICAL_DEPT:UPDATE"}, mode = SaMode.OR)
+    public R update(@RequestBody @Valid UpdateMedicalDeptForm form) {
+        MedicalDeptEntity entity = BeanUtil.toBean(form, MedicalDeptEntity.class);
+        medicalDeptService.update(entity);
         return R.ok();
     }
 
