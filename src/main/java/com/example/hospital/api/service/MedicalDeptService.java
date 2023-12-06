@@ -23,4 +23,7 @@ public interface MedicalDeptService {
     public HashMap searchById(int id);
 
     public void update(MedicalDeptEntity entity);
+
+
+    public void deleteByIds(Integer[] ids);
 }
