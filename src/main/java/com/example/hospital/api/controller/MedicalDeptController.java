@@ -6,7 +6,9 @@ import cn.dev33.satoken.annotation.SaMode;
 import cn.hutool.core.bean.BeanUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.common.R;
+import com.example.hospital.api.controller.form.InsertMedicalDeptForm;
 import com.example.hospital.api.controller.form.SearchMedicalDeptByPageForm;
+import com.example.hospital.api.db.pojo.MedicalDeptEntity;
 import com.example.hospital.api.service.MedicalDeptService;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,5 +53,15 @@ public class MedicalDeptController {
         PageUtils pageUtils = medicalDeptService.searchByPage(param);
         return R.ok().put("result", pageUtils);
     }
+
+    @PostMapping("/insert")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "MEDICAL_DEPT:INSERT"}, mode = SaMode.OR)
+    public R insert(@RequestBody @Valid InsertMedicalDeptForm form) {
+        MedicalDeptEntity entity = BeanUtil.toBean(form, MedicalDeptEntity.class);
+        medicalDeptService.insert(entity);
+        return R.ok();
+    }
+
 }
 
