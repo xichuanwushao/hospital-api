@@ -1,6 +1,7 @@
 package com.example.hospital.api.service;
 
 import com.example.hospital.api.common.PageUtils;
+import com.example.hospital.api.db.pojo.MedicalDeptEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,5 +17,8 @@ public interface MedicalDeptService {
     public HashMap searchDeptAndSub();
 
     public PageUtils searchByPage(Map param);
+
+    public void insert(MedicalDeptEntity entity);
+
 
 }
