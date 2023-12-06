@@ -69,4 +69,10 @@
             AND "recommended" = ${recommended}
         </if>
     </select>
+
+
+    <insert id="insert" parameterType="com.example.hospital.api.db.pojo.MedicalDeptEntity">
+        UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","description")
+        VALUES(NEXT VALUE FOR HOSPITAL.MEDICAL_DEPT_SEQUENCE, #{name}, ${outpatient}, ${recommended} , #{description})
+    </insert>
 </mapper>
