@@ -85,7 +85,7 @@
         WHERE "id" = ${id}
     </select>
     <update id="update" parameterType="com.example.hospital.api.db.pojo.MedicalDeptEntity">
-        UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","descriptio
+        UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","description")
         VALUES(${id}, #{name}, ${outpatient}, ${recommended}, #{description})
     </update>
 </mapper>
