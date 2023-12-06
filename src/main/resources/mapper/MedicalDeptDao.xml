@@ -22,20 +22,20 @@
             d."name" AS "name",
             d."outpatient" AS "outpatient",
             d."recommended" AS "recommended",
-            t1."subs" AS "subs",
-            t2."doctors" AS "doctors",
+            t1.subs AS "subs",
+            t2.doctors AS "doctors",
             d."description" AS "description"
         FROM HOSPITAL.MEDICAL_DEPT d
         JOIN (
             SELECT md."id",
-                COUNT(ms."id") AS "subs"
+                COUNT(ms."id") AS subs
             FROM HOSPITAL.MEDICAL_DEPT md
             LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB ms ON ms."dept_id" = md."id"
             GROUP BY md."id"
         ) t1 ON t1."id" = d."id"
         JOIN (
             SELECT md."id",
-                COUNT(d."id") AS "doctors"
+                COUNT(d."id") AS doctors
             FROM HOSPITAL.MEDICAL_DEPT md
             LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB ms ON ms."dept_id" = md."id"
             LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."dept_sub_id" = ms."id"
