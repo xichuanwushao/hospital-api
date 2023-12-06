@@ -21,6 +21,12 @@ public interface MedicalDeptDao {
 
     public void update(MedicalDeptEntity entity);
 
+    public long searchSubCount(Integer[] ids);
+
+
+    public void deleteByIds(Integer[] ids);
+
+
 }
 
 

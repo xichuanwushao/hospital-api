@@ -88,4 +88,21 @@
         UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","description")
         VALUES(${id}, #{name}, ${outpatient}, ${recommended}, #{description})
     </update>
+
+    <select id="searchSubCount" resultType="long">
+        SELECT COUNT(*)
+        FROM HOSPITAL.MEDICAL_DEPT d
+        JOIN HOSPITAL.MEDICAL_DEPT_SUB s ON s."dept_id" = d."id"
+        WHERE d."id" IN
+        <foreach collection="array" open="(" item="one" separator="," close=")">
+            ${one}
+        </foreach>
+    </select>
+    <delete id="deleteByIds">
+        DELETE FROM HOSPITAL.MEDICAL_DEPT
+        WHERE "id" IN
+        <foreach collection="array" open="(" item="one" separator="," close=")">
+            ${one}
+        </foreach>
+    </delete>
 </mapper>
