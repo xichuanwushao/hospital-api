@@ -17,6 +17,10 @@ public interface MedicalDeptDao {
 
     public void insert(MedicalDeptEntity entity);
 
+    public HashMap searchById(int id);
+
+    public void update(MedicalDeptEntity entity);
+
 }
 
 

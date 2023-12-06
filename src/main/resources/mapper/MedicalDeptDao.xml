@@ -75,4 +75,17 @@
         UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","description")
         VALUES(NEXT VALUE FOR HOSPITAL.MEDICAL_DEPT_SEQUENCE, #{name}, ${outpatient}, ${recommended} , #{description})
     </insert>
+
+    <select id="searchById" parameterType="int" resultType="HashMap">
+        SELECT "name",
+               "outpatient",
+               "recommended",
+               "description"
+        FROM HOSPITAL.MEDICAL_DEPT
+        WHERE "id" = ${id}
+    </select>
+    <update id="update" parameterType="com.example.hospital.api.db.pojo.MedicalDeptEntity">
+        UPSERT INTO HOSPITAL.MEDICAL_DEPT("id","name","outpatient","recommended","descriptio
+        VALUES(${id}, #{name}, ${outpatient}, ${recommended}, #{description})
+    </update>
 </mapper>
