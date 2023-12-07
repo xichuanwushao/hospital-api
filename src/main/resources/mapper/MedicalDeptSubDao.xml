@@ -64,7 +64,7 @@
     </select>
 
     <insert id="insert" parameterType="com.example.hospital.api.db.pojo.MedicalDeptEntity">
-        UPSERT INTO HOSPITAL.MEDICAL_DEPT_SUB("id" , "name" , " dept_id" , "location")
+        UPSERT INTO HOSPITAL.MEDICAL_DEPT_SUB("id" , "name" , "dept_id" , "location")
         VALUES(NEXT VALUE FOR HOSPITAL.MEDICAL_DEPT_SUB_SEQUENCE,#{name},${deptId},#{location})
     </insert>
 </mapper>
