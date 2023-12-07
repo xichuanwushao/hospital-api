@@ -4,6 +4,7 @@ import cn.hutool.core.map.MapUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.db.dao.MedicalDeptSubDao;
 import com.example.hospital.api.db.pojo.MedicalDeptSubEntity;
+import com.example.hospital.api.exception.HospitalException;
 import com.example.hospital.api.service.MedicalDeptSubService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +55,16 @@ public class MedicalDeptSubServiceImpl implements MedicalDeptSubService {
     @Transactional
     public void update(MedicalDeptSubEntity entity) {
         medicalDeptSubDao.update(entity);
+    }
+    @Override
+    @Transactional
+    public void deleteByIds(Integer[] ids) {
+        long count = medicalDeptSubDao.searchDoctorCount(ids);
+        if (count == 0) {
+            medicalDeptSubDao.deleteByIds(ids);
+        } else {
+            throw new HospitalException("诊室存在关联医生，无法删除记录");
+        }
     }
 
 }
