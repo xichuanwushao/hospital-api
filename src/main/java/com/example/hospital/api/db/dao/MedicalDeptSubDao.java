@@ -15,6 +15,8 @@ public interface MedicalDeptSubDao {
     public HashMap searchById(int id);
     public void update(MedicalDeptSubEntity entity);
 
+    public long searchDoctorCount(Integer[] ids);
+    public void deleteByIds(Integer[] ids);
 
 }
 

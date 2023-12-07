@@ -82,4 +82,23 @@
          ${id}, #{name}, ${deptId}, #{location}
      )
 </update>
+
+<select id="searchDoctorCount" resultType="long">
+    SELECT COUNT(*)
+    FROM HOSPITAL.MEDICAL_DEPT_SUB ds
+    JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."dept_sub_id" = ds."id"
+    JOIN HOSPITAL.DOCTOR d ON sd."doctor_id" = d."id" AND d."status" = 1
+    WHERE ds."id" IN
+    <foreach collection="array" open="(" item="one" separator="," close=")">
+        ${one}
+    </foreach>
+</select>
+<delete id="deleteByIds">
+    DELETE FROM HOSPITAL.MEDICAL_DEPT_SUB
+    WHERE "id" IN
+    <foreach collection="array" open="(" item="one" separator="," close=")">
+        ${one}
+    </foreach>
+</delete>
+
 </mapper>
