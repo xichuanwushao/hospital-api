@@ -8,14 +8,14 @@
         ds."name" AS "subName",
         d."name" AS "deptName",
         ds."location" AS "location",
-        t1."count" AS "doctors",
-        t2."count" AS "masterDoctors",
-        t3."count" AS "generalDoctors"
+        t1.count AS "doctors",
+        t2.count AS "masterDoctors",
+        t3.count AS "generalDoctors"
     FROM HOSPITAL.MEDICAL_DEPT_SUB ds
     JOIN HOSPITAL.MEDICAL_DEPT d ON ds."dept_id" = d."id"
     JOIN (
         SELECT ds."id",
-        COUNT(sd."id") AS "count"
+        COUNT(sd."id") AS count
         FROM HOSPITAL.MEDICAL_DEPT_SUB ds
         LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."dept_sub_id" = ds."id"
         LEFT JOIN HOSPITAL.DOCTOR d ON sd."doctor_id" = d."id" AND d."status" = 1
@@ -23,7 +23,7 @@
     ) t1 ON t1."id" = ds."id"
     LEFT JOIN (
         SELECT ds."id",
-        COUNT(d."id") AS "count"
+        COUNT(d."id") AS count
         FROM HOSPITAL.MEDICAL_DEPT_SUB ds
         LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."dept_sub_id" = ds."id"
         LEFT JOIN HOSPITAL.DOCTOR d ON d."id" = sd."doctor_id" AND d."job" IN ('主任医师','副主任医师')AND d."status" = 1
@@ -31,7 +31,7 @@
     ) t2 ON t2."id" = ds."id"
         LEFT JOIN (
         SELECT ds."id",
-        COUNT(d."id") AS "count"
+        COUNT(d."id") AS count
         FROM HOSPITAL.MEDICAL_DEPT_SUB ds
         LEFT JOIN HOSPITAL.MEDICAL_DEPT_SUB_AND_DOCTOR sd ON sd."dept_sub_id" = ds."id"
         LEFT JOIN HOSPITAL.DOCTOR d ON d."id" = sd."doctor_id" AND d."job" IN ('主治医师','副主治医师')AND d."status" = 1
