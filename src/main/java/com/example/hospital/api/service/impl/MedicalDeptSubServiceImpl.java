@@ -45,4 +45,15 @@ public class MedicalDeptSubServiceImpl implements MedicalDeptSubService {
         medicalDeptSubDao.insert(entity);
     }
 
+    @Override
+    public HashMap searchById(int id) {
+        HashMap map = medicalDeptSubDao.searchById(id);
+        return map;
+    }
+    @Override
+    @Transactional
+    public void update(MedicalDeptSubEntity entity) {
+        medicalDeptSubDao.update(entity);
+    }
+
 }
