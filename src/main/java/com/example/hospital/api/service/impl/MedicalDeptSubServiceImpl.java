@@ -3,8 +3,10 @@ package com.example.hospital.api.service.impl;
 import cn.hutool.core.map.MapUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.db.dao.MedicalDeptSubDao;
+import com.example.hospital.api.db.pojo.MedicalDeptSubEntity;
 import com.example.hospital.api.service.MedicalDeptSubService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -34,6 +36,13 @@ public class MedicalDeptSubServiceImpl implements MedicalDeptSubService {
         int length = MapUtil.getInt(param, "length");
         PageUtils pageUtils = new PageUtils(list, count, page, length);
         return pageUtils;
+    }
+
+
+    @Override
+    @Transactional
+    public void insert(MedicalDeptSubEntity entity) {
+        medicalDeptSubDao.insert(entity);
     }
 
 }
