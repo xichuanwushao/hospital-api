@@ -134,6 +134,26 @@ public class MedicalDeptSubServiceImpl implements MedicalDeptSubService {
                 }});
             }
 
+            //如果该记录与上一条记录不是同诊室
+            else if (tempSubId != deptSubId) {
+                tempSubId = deptSubId;
+                tempDate = date;
+                //创建新的诊室对象
+                HashMap temp = new HashMap() {{
+                    put("deptName", deptName);
+                    put("deptSubId", deptSubId);
+                    put("deptSubName", deptSubName);
+                    //出诊计划
+                    put("plan", new LinkedHashMap<>() {{
+                        //添加出诊列表
+                        put(date, new ArrayList<>() {{
+                            add(doctorName);
+                        }});
+                    }});
+                }};
+                //把新诊室对象添加到结果集
+                tempResult.put(deptSubId, temp);
+            }
         }
 
         return null;
