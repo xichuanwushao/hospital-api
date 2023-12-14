@@ -1,7 +1,9 @@
 package com.example.hospital.api.service.impl;
 
+import cn.hutool.core.date.DateTime;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
 import com.example.hospital.api.common.PageUtils;
 import com.example.hospital.api.db.dao.DoctorWorkPlanDao;
 import com.example.hospital.api.db.dao.MedicalDeptSubDao;
@@ -13,10 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author : wuxiao
@@ -155,7 +154,57 @@ public class MedicalDeptSubServiceImpl implements MedicalDeptSubService {
                 tempResult.put(deptSubId, temp);
             }
         }
+        //为了循环HashMap中的元素，所以提取所有的元素
+        Set<Map.Entry> set = tempResult.entrySet();
+        //循环每个元素
+        set.forEach(one -> {
+            //诊室对象
+            HashMap map = (HashMap) one.getValue();
+            //该诊室出诊计划
+            LinkedHashMap plan = (LinkedHashMap) map.get("plan");
+            /*
+             * 业务方法第二个参数，提取每个日期，判断出诊计划中是否有该日期。
+             * 如果出诊计划中没有该日期，说明改天没有医生出诊
+             */
+            dateList.forEach(date -> {
+                if (!plan.containsKey(date)) {
+                    //某天没有医生出诊，就往出诊计划中添加空的名单列表
+                    plan.put(date, new ArrayList<>());
+                }
+            });
 
-        return null;
+            //由于往LinkedHashMap中添加的新元素（空的出诊列表），所以要对所有元素排序
+            TreeMap sort = MapUtil.sort(plan, new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    String key1 = (String) o1;
+                    String key2 = (String) o2;
+                    boolean bool = new DateTime(key1).isAfter(new DateTime(key2));
+                    return bool ? 1 : -1;
+                }
+            });
+            //把排好序的出诊计划更新到诊室对象中
+            map.replace("plan", sort);
+        });
+
+        //每个诊室的plan是TreeMap，我们要转换成列表形式，将来才能变成JSON数组
+        Collection<HashMap> values = tempResult.values();
+        values.forEach(one -> {
+            TreeMap plan = (TreeMap) one.get("plan");
+
+            //取出TreeMap每个元素
+            Set<Map.Entry> tempSet = plan.entrySet( );
+            ArrayList temp = new ArrayList();
+            //把出诊计划保存到列表中
+            tempSet.forEach(entry -> {
+                temp.add(new HashMap<>() {{
+                    put("date", entry.getKey());
+                    put("doctors", entry.getValue());
+                }});
+            });
+            //更新诊室对象的plan
+            one.replace("plan", temp);
+        });
+        return JSONUtil.parseArray(values);
     }
 }
