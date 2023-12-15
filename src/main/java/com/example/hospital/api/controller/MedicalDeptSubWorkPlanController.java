@@ -10,6 +10,7 @@ import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONArray;
 import com.example.hospital.api.common.R;
+import com.example.hospital.api.controller.form.InsertWorkPlanForm;
 import com.example.hospital.api.controller.form.SearchWorkPlanInRangeForm;
 import com.example.hospital.api.service.MedicalDeptSubWorkPlanService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +55,14 @@ public class MedicalDeptSubWorkPlanController {
 
         });
         return R.ok().put("result", array).put("dateList", dateList);
+    }
+
+    @PostMapping("/insert")
+    @SaCheckLogin
+    @SaCheckPermission(value = {"ROOT", "SCHEDULE:INSERT"}, mode = SaMode.OR)
+    public R insert(@RequestBody @Valid InsertWorkPlanForm form) {
+        Map param = BeanUtil.beanToMap(form);
+        String result = workPlanService.insert(param);
+        return R.ok().put("result", result);
     }
 }
