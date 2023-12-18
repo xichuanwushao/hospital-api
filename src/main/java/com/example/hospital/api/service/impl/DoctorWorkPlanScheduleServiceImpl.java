@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author : wuxiao
@@ -91,6 +92,43 @@ public class DoctorWorkPlanScheduleServiceImpl implements DoctorWorkPlanSchedule
             //设置缓存过期时间
             redisTemplate.expireAt(key, DateUtil.parse(date + " " + time));
         }
+    }
+
+    @Override
+    public ArrayList searchDeptSubSchedule(Map param) {
+        ArrayList<HashMap> list = doctorWorkPlanScheduleDao.searchDeptSubSchedule(param);
+        ArrayList<HashMap> result = new ArrayList();
+        int tempDoctorId = 0;
+        HashMap doctor = new HashMap();
+
+        for (HashMap map : list) {
+            int doctorId = MapUtil.getInt(map, "doctorId");
+            int slot = MapUtil.getInt(map, "slot");
+            //如果当前记录跟上一条记录的医生不是同一个人
+            if (tempDoctorId != doctorId) {
+                tempDoctorId = doctorId;
+                doctor = map;
+                doctor.replace("slot", new ArrayList<Integer>() {{
+                    add(slot);
+                }});
+                result.add(doctor);
+            }
+            //如果当前记录与上一条记录是同一个医生
+            else if (tempDoctorId == doctorId) {
+                ArrayList<Integer> slotList = (ArrayList) doctor.get("slot");
+                slotList.add(slot);
+            }
+        }
+        //筛选哪些时段出诊，哪些时段不出诊
+        for (HashMap map : result) {
+            ArrayList<Integer> slot = (ArrayList) map.get("slot");
+            ArrayList tempSlot = new ArrayList();
+            for (int i = 1; i <= 15; i++) {
+                tempSlot.add(slot.contains(i));
+            }
+            map.replace("slot", tempSlot);
+        }
+        return result;
     }
 }
 
