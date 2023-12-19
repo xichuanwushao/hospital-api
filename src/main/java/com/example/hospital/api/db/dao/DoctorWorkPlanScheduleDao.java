@@ -12,7 +12,7 @@ public interface DoctorWorkPlanScheduleDao {
 
     public ArrayList<HashMap> searchDeptSubSchedule(Map param);
 
-
+    public ArrayList<HashMap> searchByWorkPlanId(int workPlanId);
 
 }
 
