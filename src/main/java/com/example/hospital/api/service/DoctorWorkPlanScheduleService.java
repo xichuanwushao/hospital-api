@@ -3,6 +3,7 @@ package com.example.hospital.api.service;
 import com.example.hospital.api.db.pojo.DoctorWorkPlanScheduleEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,4 +15,6 @@ public interface DoctorWorkPlanScheduleService {
 
     public ArrayList searchDeptSubSchedule(Map param);
 
+
+    public HashMap searchByWorkPlanId(int workPlanId);
 }
