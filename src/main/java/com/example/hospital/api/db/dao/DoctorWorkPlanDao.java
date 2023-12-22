@@ -15,6 +15,8 @@ public interface DoctorWorkPlanDao {
     @Transactional
     public void insert(DoctorWorkPlanEntity entity);
 
+    public void updateMaximum(Map param);
+
 }
 
 
