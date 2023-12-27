@@ -18,6 +18,7 @@ public interface DoctorWorkPlanScheduleDao {
 
     public void deleteByIds(ArrayList<Integer> ids);
 
+    public void deleteByWorkPlanId(int workPlanId);
 }
 
 

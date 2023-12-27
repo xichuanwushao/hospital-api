@@ -17,6 +17,10 @@ public interface DoctorWorkPlanDao {
 
     public void updateMaximum(Map param);
 
+    public Integer searchNumById(int id);
+
+    public void deleteById(int id);
+
 }
 
 
