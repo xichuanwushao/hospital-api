@@ -166,6 +166,8 @@ public class DoctorWorkPlanScheduleServiceImpl implements DoctorWorkPlanSchedule
         this.addScheduleCache(addList);
     }
 
+
+
     @Transactional
     ArrayList<DoctorWorkPlanScheduleEntity> insertOrDeleteScheduleHandle(Map param) {
         //更新计划表接诊人数上限
@@ -217,6 +219,17 @@ public class DoctorWorkPlanScheduleServiceImpl implements DoctorWorkPlanSchedule
 
         return addList;
     }
-
+    @Override
+    public void deleteByWorkPlanId(int workPlanId) {
+        //查询出诊日程记录的ID值
+        ArrayList<HashMap> list = doctorWorkPlanScheduleDao.searchByWorkPlanId(workPlanId);
+                doctorWorkPlanScheduleDao.deleteByWorkPlanId(workPlanId);
+        list.forEach(one -> {
+            int scheduleId = MapUtil.getInt(one, "scheduleId");
+            String key = "doctor_schedule_" + scheduleId;
+            redisTemplate.delete(key);
+        });
     }
+
+}
 

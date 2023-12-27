@@ -19,4 +19,6 @@ public interface DoctorWorkPlanScheduleService {
     public HashMap searchByWorkPlanId(int workPlanId);
 
     public void updateSchedule(Map param);
+
+    public void deleteByWorkPlanId(int workPlanId);
 }
