@@ -12,7 +12,7 @@ server:
 #spring:
 #  datasource:
 #    driver-class-name: org.apache.phoenix.queryserver.client.Driver
-#    url: jdbc:phoenix:192.168.137.210:2181
+#    url: jdbc:phoenix:192.168.124.199:2181
 #    type: com.alibaba.druid.pool.DruidDataSource
 #    druid:
 #      test-on-borrow: true
@@ -23,7 +23,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
-    url: jdbc:phoenix:192.168.137.210:2181:/hbase
+    url: jdbc:phoenix:192.168.124.199:2181:/hbase
     username: none
     password: none
     connection-properties: phoenix.schema.isNamespaceMappingEnabled=true
@@ -47,7 +47,7 @@ spring:
     # 连接测试 sql 这个地方需要根据数据库方言差异而配置 例如 oracle 就应该写成  select 1 from dual
     connection-test-query: SELECT 1
   phoenixDataSource:
-    url: jdbc:phoenix:192.168.137.210:2181:/hbase
+    url: jdbc:phoenix:192.168.124.199:2181:/hbase
     driverClassName: org.apache.phoenix.jdbc.PhoenixDriver
     username: ""
     password: ""
@@ -60,7 +60,7 @@ spring:
 
   redis:
     database: 0
-    host: 192.168.137.210
+    host: 192.168.124.199
     port: 6379
     password: 888816280
     jedis:
@@ -106,7 +106,7 @@ wechat:
         app-id: wx4cb8e9621950da45
         app-v3-secret: 6c6085b7a939450d833d8bb3081d4628
         mch-id: 1526972031
-        domain: http://192.168.137.210:9090/hospital-wx-api
+        domain: http://192.168.124.199:9090/hospital-wx-api
         cert-path: apiclient_cert.p12
 
 tencent:
@@ -123,7 +123,7 @@ tencent:
     expire: 86400
 
 minio:
-  endpoint: http://192.168.137.210:9002
+  endpoint: http://192.168.124.199:9002
   access-key: root
   secret-key: 888816280
 
